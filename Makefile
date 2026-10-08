@@ -19,11 +19,11 @@ BINARIES=$(patsubst $(SOURCE)/%.cpp,$(BIN)/%,$(SOURCES))
 
 all: $(BINARIES)
 
-$(BIN)/%: $(SOURCE)/%.cpp $(BIN)
+$(BIN)/%: $(SOURCE)/%.cpp | $(BIN)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $< -o $@
 
 $(BIN):
-	mkdir $(BIN)
+	mkdir -p $(BIN)
 
 clean:
-	rm -rf $(BINARIES)
+	rm -rf $(BIN)
