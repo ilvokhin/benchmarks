@@ -5,7 +5,7 @@
 
 #include <benchmark/benchmark.h>
 
-enum class Alignment: std::size_t {
+enum Alignment: std::size_t {
     Default = alignof(std::atomic<std::size_t>),
     Cacheline = std::hardware_destructive_interference_size
 };
