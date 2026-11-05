@@ -8,8 +8,7 @@ SOURCE = src
 SOURCES = $(wildcard $(SOURCE)/*.cpp)
 BINARIES = $(patsubst $(SOURCE)/%.cpp,$(BIN)/%,$(SOURCES))
 
-.PHONY: all clean
-
+.PHONY: all
 all: $(BINARIES)
 
 $(BIN)/%: $(SOURCE)/%.cpp | $(BIN)
@@ -18,5 +17,6 @@ $(BIN)/%: $(SOURCE)/%.cpp | $(BIN)
 $(BIN):
 	mkdir -p $(BIN)
 
+.PHONY: clean
 clean:
 	rm -rf $(BIN)
